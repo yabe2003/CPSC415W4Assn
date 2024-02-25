@@ -1,0 +1,132 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Access API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Your GET summary",
+        "description": "Your GET description",
+        "responses": {
+          "200": {
+            "description": "Successful GET"
+          }
+        }
+      }
+    },
+    "/access": {
+      "get": {
+        "summary": "Get access details",
+        "description": "Get the access details for a user to a server",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "dipto"
+          },
+          {
+            "name": "server",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "server1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Access details retrieved"
+          }
+        }
+      },
+      "post": {
+        "summary": "Post access details",
+        "description": "Post the access details for a user to a server",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User and server details",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "default": "dipto"
+                },
+                "server": {
+                  "type": "string",
+                  "default": "server1"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Access granted"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update access details",
+        "description": "Update the access details for a user to a server",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User and server details to update",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "default": "dipto"
+                },
+                "server": {
+                  "type": "string",
+                  "default": "server1"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Access updated"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete access details",
+        "description": "Revoke the access of a user to a server",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "dipto"
+          },
+          {
+            "name": "server",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "server1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Access revoked"
+          }
+        }
+      }
+    }
+  }
+}
